@@ -2,6 +2,8 @@ package com.jass;
 
 import java.util.Scanner;
 
+import static com.jass.DeckOfCards.enterCardToPlay;
+
 public class Player {
 
     static String name;
@@ -16,14 +18,23 @@ public class Player {
         return name;
     }
 
+    public static int readInCardToPlay(Player player1) {
+        int chosenCardNumber;
+        do {
+            chosenCardNumber = enterCardToPlay(player1);
+        } while (chosenCardNumber != 99);
+        return chosenCardNumber;
+    }
+
 
     public void showPlayerCards(){
         System.out.println("---------------------------------------------");
-        for (Card card : playCards){
-            if(card!=null)
-                System.out.println(card.cardType + "  of  " + card.cardColour);
+        for (int i = 0; i < playCards.length; i++){
+            if(playCards[i]!=null)
+                System.out.println("[" + i + "] - "+  playCards[i].cardType + "  of  " + playCards[i].cardColour);
         }
         System.out.println("---------------------------------------------");
+
     }
 
 

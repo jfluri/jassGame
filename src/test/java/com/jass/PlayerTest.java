@@ -54,15 +54,15 @@ public class PlayerTest {
 
 
         String resultHand = "---------------------------------------------\r\n" +
-                "Ace  of  Spade\r\n" +
-                "King  of  Spade\r\n" +
-                "Queen  of  Spade\r\n" +
-                "Jack  of  Spade\r\n" +
-                "Ten  of  Spade\r\n" +
-                "Nine  of  Spade\r\n" +
-                "Eight  of  Spade\r\n" +
-                "Seven  of  Spade\r\n" +
-                "Six  of  Spade\r\n" +
+                "[0] - Ace  of  Spade\r\n" +
+                "[1] - King  of  Spade\r\n" +
+                "[2] - Queen  of  Spade\r\n" +
+                "[3] - Jack  of  Spade\r\n" +
+                "[4] - Ten  of  Spade\r\n" +
+                "[5] - Nine  of  Spade\r\n" +
+                "[6] - Eight  of  Spade\r\n" +
+                "[7] - Seven  of  Spade\r\n" +
+                "[8] - Six  of  Spade\r\n" +
                 "---------------------------------------------\r\n";
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

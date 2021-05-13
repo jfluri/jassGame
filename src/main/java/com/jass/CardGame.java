@@ -48,6 +48,35 @@ public class CardGame {
 
             // Start Game and play 9 rounds
 
+
+            for(int rounds = 1; rounds <= 9; rounds++){
+
+                // Loop for round to play
+                System.out.println("Starting round "+rounds);
+                System.out.println("-------------------------------");
+
+                // Show the hand of the player
+                player1.showPlayerCards();
+
+                System.out.println("Play a card of your carddeck");
+
+                // Read in card to play
+
+                int chosenCardNumber = Player.readInCardToPlay(player1);
+
+                // Play round
+
+
+
+
+                // remove card from players hand
+
+
+
+
+            }
+
+
             //int points = Jass.startGame(trumpColour);
 
             //System.out.println("You achieved " + points + " points! Congratulations!");
