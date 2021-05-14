@@ -44,8 +44,6 @@ public class CardGame {
             String trumpColour = Jass.setTrumpColour();
 
 
-            // Assign points to cards
-
             // Start Game and play 9 rounds
 
 
@@ -65,9 +63,12 @@ public class CardGame {
 
                 // Play round
 
+                // determine what cards can be played according to rules
 
                 // remove played card from carddeck
+                DeckOfCards.removePlayedCardFromDeck(chosenCardNumber, player1);
 
+                // Assign points to cards
 
                 // assign points
 

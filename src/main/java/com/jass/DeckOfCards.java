@@ -1,5 +1,7 @@
 package com.jass;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -108,4 +110,9 @@ public class DeckOfCards {
         }
     }
 
+    public static void removePlayedCardFromDeck(int chosenCardNumber, Player player) {
+
+        player.playCards = ArrayUtils.remove(player.playCards, chosenCardNumber);
+
+    }
 }

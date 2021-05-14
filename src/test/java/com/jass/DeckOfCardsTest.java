@@ -123,5 +123,30 @@ public class DeckOfCardsTest {
 
     }
 
+    @Test
+    @DisplayName("Test if Card is removed from Deck")
+    public void testRemoveCardFromDeck(){
+
+        DeckOfCards testDeck = new DeckOfCards();
+
+        Player player1 = new Player("Jasmin");
+        Player player2 = new Player("Dodo");
+        Player player3 = new Player("Dodo");
+        Player player4 = new Player("Dodo");
+        // Create a deck for each player
+        testDeck.dealCards(player1,player2,player3,player4);
+
+
+        DeckOfCards.removePlayedCardFromDeck(0, player1);
+        DeckOfCards.removePlayedCardFromDeck(0, player1);
+
+        int amtCardsInDeck = player1.playCards.length;
+
+        Assertions.assertAll(
+                () -> assertEquals(7, amtCardsInDeck)
+        );
+
+    }
+
 
 }
