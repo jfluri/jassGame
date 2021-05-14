@@ -1,11 +1,15 @@
 package com.jass;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
+import static com.jass.DeckOfCards.enterCardToPlay;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -78,6 +82,45 @@ public class DeckOfCardsTest {
         String cardDeck =  baos.toString();
 
         assertNotEquals(originalResultDeck,cardDeck);
+    }
+
+    @Test
+    @DisplayName("Test if Card can be entered to play")
+    public void testEnterCardToPlay(){
+
+        DeckOfCards testDeck = new DeckOfCards();
+
+        Player player1 = new Player("Jasmin");
+        Player player2 = new Player("Dodo");
+        Player player3 = new Player("Dodo");
+        Player player4 = new Player("Dodo");
+        // Create a deck for each player
+        testDeck.dealCards(player1,player2,player3,player4);
+
+        // Print one Deck for Player1
+        player1.showPlayerCards();
+
+        String input = "0";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        int chosenCard = enterCardToPlay(player1);
+
+        String input2 = "3";
+        InputStream in2 = new ByteArrayInputStream(input2.getBytes());
+        System.setIn(in2);
+        int chosenCard2 = enterCardToPlay(player1);
+
+        String input3 = "9";
+        InputStream in3 = new ByteArrayInputStream(input3.getBytes());
+        System.setIn(in3);
+        int chosenCard3 = enterCardToPlay(player1);
+
+        Assertions.assertAll(
+                () -> assertEquals(0, chosenCard),
+                () -> assertEquals(3, chosenCard2 ),
+                () -> assertEquals(99, chosenCard3)
+        );
+
     }
 
 

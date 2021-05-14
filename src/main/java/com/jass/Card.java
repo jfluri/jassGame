@@ -13,14 +13,26 @@ public class Card {
     }
 
 
+    public static int setCardValue(String trumpColour, Card card[], int pos){
+
+        int cardValue;
+
+        if (trumpColour.toUpperCase().equals(card[pos].cardColour.toUpperCase())){
+            cardValue = setCardValuesTrumpColour(trumpColour,card,pos );
+        }
+        else {
+            cardValue = setCardValuesNonTrumpColour(trumpColour,card,pos);
+        }
+
+        return cardValue;
+    }
+
+
     public static int setCardValuesNonTrumpColour(String trumpColour, Card card[], int pos){
 
-           System.out.println(card[pos].cardColour + card[pos].cardType);
+          int cardValue;
 
-           int cardValue = 0;
-
-           if(card[pos].cardColour.toUpperCase() != trumpColour.toUpperCase()){
-               switch(card[pos].cardType){
+               switch(card[pos].cardType.toUpperCase()){
                    case "ACE" :
                        cardValue = 11;
                        break;
@@ -48,9 +60,10 @@ public class Card {
                    case "SIX" :
                        cardValue = 0;
                        break;
+                   default:
+                       cardValue = -1;
+                       break;
                }
-
-           }
 
            return cardValue;
 
@@ -58,12 +71,9 @@ public class Card {
 
     public static int setCardValuesTrumpColour(String trumpColour, Card card[], int pos){
 
-        System.out.println(card[pos].cardColour + card[pos].cardType);
+        int cardValue ;
 
-        int cardValue = 0;
-
-        if(card[pos].cardColour.toUpperCase() == trumpColour.toUpperCase()){
-            switch(card[pos].cardType){
+            switch(card[pos].cardType.toUpperCase()){
                 case "ACE":
                     cardValue = 11;
                     break;
@@ -91,9 +101,10 @@ public class Card {
                 case "SIX" :
                     cardValue = 0;
                     break;
+                default:
+                    cardValue = -1;
+                    break;
             }
-
-        }
 
         return cardValue;
 

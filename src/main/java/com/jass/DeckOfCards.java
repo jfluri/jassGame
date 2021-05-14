@@ -1,7 +1,5 @@
 package com.jass;
 
-import org.apache.commons.lang3.Range;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,7 +30,6 @@ public class DeckOfCards {
                                 CardTypes.SIX.getCardType()
         };
 
-        //String[] cards = getNames(Cards.class);
 
         for (String s:cardColour){
             for (String r:cardType){
@@ -98,19 +95,17 @@ public class DeckOfCards {
 
     public static int enterCardToPlay(Player player1){
 
-        Range<Integer> myRange = Range.between(0,player1.playCards.length);
-
         System.out.println("Enter the Number of the card to play :");
-
 
         Scanner sc = new Scanner(System.in);
         int chosenCardPosition = sc.nextInt();
 
-        if (myRange.contains(chosenCardPosition)){
+        if (chosenCardPosition >= 0 && chosenCardPosition < 9){
             return chosenCardPosition;
         }
-        else return 99;
-
-    };
+        else {
+            return 99;
+        }
+    }
 
 }

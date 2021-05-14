@@ -21,14 +21,28 @@ public class CardTest {
         // Create a deck for each player
         testCards.dealCards(player1,player2,player3,player4);
 
-        int i=5; //NINE
-        int j=0; //ACE
+        int six = 8; // SIX
+        int seven = 7; // SEVEN
+        int eight = 6; // EIGHT
+        int nine = 5; //NINE
+        int ten = 4; // TEN
+        int jack = 3; //JACK
+        int queen = 2; // QUEEN
+        int king = 1; //KING
+        int ace = 0; //ACE
 
         Card[] testset = testCards.getDeckOfCards();
 
         Assertions.assertAll(
-                () -> assertEquals(0, Card.setCardValuesNonTrumpColour(trumpColour,testset,i)),
-                () -> assertEquals(11, Card.setCardValuesNonTrumpColour(trumpColour,testset,j))
+                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,six)),
+                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,seven)),
+                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,eight)),
+                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,nine)),
+                () -> assertEquals(10, Card.setCardValue(trumpColour,testset,ten)),
+                () -> assertEquals(2, Card.setCardValue(trumpColour,testset,jack)),
+                () -> assertEquals(3, Card.setCardValue(trumpColour,testset,queen)),
+                () -> assertEquals(4, Card.setCardValue(trumpColour,testset,king)),
+                () -> assertEquals(11, Card.setCardValue(trumpColour,testset,ace))
         );
 
     }
@@ -37,25 +51,41 @@ public class CardTest {
     @DisplayName("Test if values are assigned to trump colours")
     public void testValueAssignmentTrumpColours(){
 
-        String trumpColour = "Check";
-        DeckOfCards testCardsT = new DeckOfCards();
+        String trumpColour = "CHECK";
+        DeckOfCards testCards = new DeckOfCards();
 
         Player player1 = new Player("Jasmin");
         Player player2 = new Player("Dodo");
         Player player3 = new Player("Dodo");
         Player player4 = new Player("Dodo");
         // Create a deck for each player
-        testCardsT.dealCards(player1,player2,player3,player4);
+        testCards.dealCards(player1,player2,player3,player4);
 
-        int i=5; //NINE
-        int j=0; //ACE
+        int six = 8; // SIX
+        int seven = 7; // SEVEN
+        int eight = 6; // EIGHT
+        int nine = 5; //NINE
+        int ten = 4; // TEN
+        int jack = 3; //JACK
+        int queen = 2; // QUEEN
+        int king = 1; //KING
+        int ace = 0; //ACE
 
-        Card[] testset2 = testCardsT.getDeckOfCards();
+        Card[] testset = testCards.getDeckOfCards();
 
         Assertions.assertAll(
-                () -> assertEquals(9, Card.setCardValuesTrumpColour(trumpColour,testset2,i)),
-                () -> assertEquals(11, Card.setCardValuesTrumpColour(trumpColour,testset2,j))
+                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,six)),
+                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,seven)),
+                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,eight)),
+                () -> assertEquals(14, Card.setCardValue(trumpColour,testset,nine)),
+                () -> assertEquals(10, Card.setCardValue(trumpColour,testset,ten)),
+                () -> assertEquals(20, Card.setCardValue(trumpColour,testset,jack)),
+                () -> assertEquals(3, Card.setCardValue(trumpColour,testset,queen)),
+                () -> assertEquals(4, Card.setCardValue(trumpColour,testset,king)),
+                () -> assertEquals(11, Card.setCardValue(trumpColour,testset,ace))
         );
+
     }
+
 
 }

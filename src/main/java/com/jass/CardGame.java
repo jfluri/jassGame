@@ -61,15 +61,15 @@ public class CardGame {
                 System.out.println("Play a card of your carddeck");
 
                 // Read in card to play
-
                 int chosenCardNumber = Player.readInCardToPlay(player1);
 
                 // Play round
 
 
+                // remove played card from carddeck
 
 
-                // remove card from players hand
+                // assign points
 
 
 
