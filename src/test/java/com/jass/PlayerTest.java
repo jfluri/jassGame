@@ -92,5 +92,27 @@ public class PlayerTest {
 
     }
 
+    @Test
+    @DisplayName("Test Play Card of Computer Players")
+    public void testPlayCard(){
+
+
+        DeckOfCards testDeck = new DeckOfCards();
+        //testDeck.ShuffleCards();
+
+        Player player1 = new Player("Jasmin");
+        Player player2 = new Player("Dodo");
+        Player player3 = new Player("Dodo");
+        Player player4 = new Player("Dodo");
+        // Create a deck for each player
+        testDeck.dealCards(player1,player2,player3,player4);
+
+        int cardNumber = Player.playCard(player1,"HEART");
+
+        assertTrue(1 <= cardNumber && cardNumber <= 9);
+
+
+    }
+
 
 }

@@ -43,30 +43,62 @@ public class CardGame {
 
             String trumpColour = Jass.setTrumpColour();
 
-
+            ///////////////////////////////////////////////////////////////
             // Start Game and play 9 rounds
+            ///////////////////////////////////////////////////////////////
 
-
+            // Loop for amount of rounds to play
             for(int rounds = 1; rounds <= 9; rounds++){
 
-                // Loop for round to play
                 System.out.println("Starting round "+rounds);
                 System.out.println("-------------------------------");
 
                 // Show the hand of the player
                 player1.showPlayerCards();
-
                 System.out.println("Play a card of your carddeck");
 
                 // Read in card to play
                 int chosenCardNumber = Player.readInCardToPlay(player1);
 
-                // Play round
+                if ( chosenCardNumber == 99 ){
+                    System.out.println("Invalid card chosen - please enter a valid card again");
 
+                    chosenCardNumber = Player.readInCardToPlay(player1);
+                }
+                // Save cards of round into round-card array
+                Card[] playedRound = new Card[3];
+
+                // Player1
+                playedRound[0] = player1.playCards[chosenCardNumber];
                 // determine what cards can be played according to rules
 
-                // remove played card from carddeck
+                // Player2
+                int player2CardNumber = Player.playCard(player2, trumpColour);
+
+                System.out.println("Player 2 : " + player2.playCards[player2CardNumber-1].cardColour + " " + player2.playCards[player2CardNumber-1].cardType);
+                playedRound[1] = player2.playCards[player2CardNumber-1];
+
+                // Player3
+                int player3CardNumber = Player.playCard(player3, trumpColour);
+
+                System.out.println("Player 3 : " + player3.playCards[player3CardNumber-1].cardColour + " " + player3.playCards[player3CardNumber-1].cardType);
+                playedRound[2] = player3.playCards[player3CardNumber-1];
+
+                // Player4
+                int player4CardNumber = Player.playCard(player3, trumpColour);
+
+                System.out.println("Player 4 : " + player4.playCards[player4CardNumber-1].cardColour + " " + player4.playCards[player4CardNumber-1].cardType);
+                playedRound[3] = player4.playCards[player4CardNumber-1];
+
+
+                // remove played card from carddeck for all the players
                 DeckOfCards.removePlayedCardFromDeck(chosenCardNumber, player1);
+
+                DeckOfCards.removePlayedCardFromDeck(player2CardNumber, player2);
+
+                DeckOfCards.removePlayedCardFromDeck(player3CardNumber, player3);
+
+                DeckOfCards.removePlayedCardFromDeck(player4CardNumber, player4);
 
                 // Assign points to cards
 

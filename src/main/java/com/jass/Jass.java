@@ -19,7 +19,7 @@ public class Jass {
         String theTrumpColour = trumpColour;
 
 
-        int points = 0;
+        int points = 1;
         return points;
     }
 

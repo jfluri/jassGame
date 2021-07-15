@@ -102,7 +102,7 @@ public class DeckOfCards {
         Scanner sc = new Scanner(System.in);
         int chosenCardPosition = sc.nextInt();
 
-        if (chosenCardPosition >= 0 && chosenCardPosition < 9){
+        if (chosenCardPosition >= 0 && chosenCardPosition <= player1.playCards.length){
             return chosenCardPosition;
         }
         else {

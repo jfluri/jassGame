@@ -7,10 +7,28 @@ import com.jass.CardColours;
 dialect "java"
 rule "Print Trump Symbols Heart"
     when
-        jass : Jass( trumpColour == "HEART" )
+        jass : Jass( trumpColour.equals("HEART") )
     then
         System.out.println( CardColours.HEART.cardSymbol() );
 end
+
+// Rules
+// If a colour is played, all other colours played must match the colour if the players have that colour in their card deck
+
+// If a player has four cards of the same card type in his carddeck, he gets 100 points
+
+// If a player has four jacks in his carddeck he gets 200 points
+
+// If a player has king and queen of the trump colour in his carddeck, he gets 20 points
+
+// If a player has three cards of the same card colour in his carddeck that are in a row, he gets 20 points
+
+// If a player has four cards of the same card colour in his carddeck that are in a row, he gets 50 points
+
+// If a player has five cards of the same card colour in his carddeck that are in a row, he gets 100 points
+
+// A player wins a round if he played the highest card
+
 
 rule "Hello World"
     when

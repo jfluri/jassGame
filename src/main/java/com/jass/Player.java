@@ -1,5 +1,6 @@
 package com.jass;
 
+import java.util.Random;
 import java.util.Scanner;
 
 import static com.jass.DeckOfCards.enterCardToPlay;
@@ -20,10 +21,31 @@ public class Player {
 
     public static int readInCardToPlay(Player player1) {
         int chosenCardNumber;
-        do {
-            chosenCardNumber = enterCardToPlay(player1);
-        } while (chosenCardNumber != 99);
+
+        chosenCardNumber = enterCardToPlay(player1);
+
         return chosenCardNumber;
+    }
+
+    public static int playCard(Player player, String trumpColour) {
+
+        // load up the knowledge base
+        //KieServices ks = KieServices.Factory.get();
+        //KieContainer kContainer = ks.getKieClasspathContainer();
+        //KieSession kSession = kContainer.newKieSession("rules");
+
+        Random rand = new Random();
+
+        int upperbound = player.playCards.length + 1 ;
+
+        int cardNumber = rand.nextInt(upperbound);
+
+        //kSession.insert(trumpColour);
+        //kSession.insert(player.playCards);
+        //kSession.fireAllRules();
+
+
+        return cardNumber+1;
     }
 
 
