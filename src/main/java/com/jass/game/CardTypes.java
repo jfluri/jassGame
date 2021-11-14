@@ -1,4 +1,4 @@
-package com.jass;
+package com.jass.game;
 
 public enum CardTypes {
     ACE("Ace"),

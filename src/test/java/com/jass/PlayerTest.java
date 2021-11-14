@@ -1,5 +1,7 @@
 package com.jass;
 
+import com.jass.game.DeckOfCards;
+import com.jass.game.Player;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -71,7 +73,7 @@ public class PlayerTest {
         System.setOut(ps);
 
         DeckOfCards testDeck = new DeckOfCards();
-        //testDeck.ShuffleCards();
+        //testDeck.shuffleCards();
 
         Player player1 = new Player("Jasmin");
         Player player2 = new Player("Dodo");
@@ -98,7 +100,7 @@ public class PlayerTest {
 
 
         DeckOfCards testDeck = new DeckOfCards();
-        //testDeck.ShuffleCards();
+        //testDeck.shuffleCards();
 
         Player player1 = new Player("Jasmin");
         Player player2 = new Player("Dodo");

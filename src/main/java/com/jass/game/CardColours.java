@@ -1,4 +1,4 @@
-package com.jass;
+package com.jass.game;
 
 public enum CardColours {
     HEART("Heart","❤❤❤"),
@@ -9,7 +9,7 @@ public enum CardColours {
     private final String cardColour;
     private final String cardSymbol;
 
-    private CardColours(String cardColour, String cardSymbol) {
+    CardColours(String cardColour, String cardSymbol) {
         this.cardColour = cardColour;
         this.cardSymbol = cardSymbol;
     }

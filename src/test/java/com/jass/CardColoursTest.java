@@ -1,5 +1,6 @@
 package com.jass;
 
+import com.jass.game.CardColours;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

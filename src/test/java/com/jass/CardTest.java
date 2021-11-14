@@ -1,5 +1,8 @@
 package com.jass;
 
+import com.jass.game.Card;
+import com.jass.game.DeckOfCards;
+import com.jass.game.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,15 +37,15 @@ public class CardTest {
         Card[] testset = testCards.getDeckOfCards();
 
         Assertions.assertAll(
-                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,six)),
-                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,seven)),
-                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,eight)),
-                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,nine)),
-                () -> assertEquals(10, Card.setCardValue(trumpColour,testset,ten)),
-                () -> assertEquals(2, Card.setCardValue(trumpColour,testset,jack)),
-                () -> assertEquals(3, Card.setCardValue(trumpColour,testset,queen)),
-                () -> assertEquals(4, Card.setCardValue(trumpColour,testset,king)),
-                () -> assertEquals(11, Card.setCardValue(trumpColour,testset,ace))
+                () -> assertEquals(0, Card.getCardValue(trumpColour,testset,six)),
+                () -> assertEquals(0, Card.getCardValue(trumpColour,testset,seven)),
+                () -> assertEquals(0, Card.getCardValue(trumpColour,testset,eight)),
+                () -> assertEquals(0, Card.getCardValue(trumpColour,testset,nine)),
+                () -> assertEquals(10, Card.getCardValue(trumpColour,testset,ten)),
+                () -> assertEquals(2, Card.getCardValue(trumpColour,testset,jack)),
+                () -> assertEquals(3, Card.getCardValue(trumpColour,testset,queen)),
+                () -> assertEquals(4, Card.getCardValue(trumpColour,testset,king)),
+                () -> assertEquals(11, Card.getCardValue(trumpColour,testset,ace))
         );
 
     }
@@ -74,15 +77,15 @@ public class CardTest {
         Card[] testset = testCards.getDeckOfCards();
 
         Assertions.assertAll(
-                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,six)),
-                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,seven)),
-                () -> assertEquals(0, Card.setCardValue(trumpColour,testset,eight)),
-                () -> assertEquals(14, Card.setCardValue(trumpColour,testset,nine)),
-                () -> assertEquals(10, Card.setCardValue(trumpColour,testset,ten)),
-                () -> assertEquals(20, Card.setCardValue(trumpColour,testset,jack)),
-                () -> assertEquals(3, Card.setCardValue(trumpColour,testset,queen)),
-                () -> assertEquals(4, Card.setCardValue(trumpColour,testset,king)),
-                () -> assertEquals(11, Card.setCardValue(trumpColour,testset,ace))
+                () -> assertEquals(0, Card.getCardValue(trumpColour,testset,six)),
+                () -> assertEquals(0, Card.getCardValue(trumpColour,testset,seven)),
+                () -> assertEquals(0, Card.getCardValue(trumpColour,testset,eight)),
+                () -> assertEquals(14, Card.getCardValue(trumpColour,testset,nine)),
+                () -> assertEquals(10, Card.getCardValue(trumpColour,testset,ten)),
+                () -> assertEquals(20, Card.getCardValue(trumpColour,testset,jack)),
+                () -> assertEquals(3, Card.getCardValue(trumpColour,testset,queen)),
+                () -> assertEquals(4, Card.getCardValue(trumpColour,testset,king)),
+                () -> assertEquals(11, Card.getCardValue(trumpColour,testset,ace))
         );
 
     }

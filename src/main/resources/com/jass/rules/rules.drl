@@ -1,16 +1,24 @@
-package com.jass
+package com.jass.rules
  
-import com.jass.CardGame.Message;
-import com.jass.Jass;
+import com.jass.CardGameMain.Message;
+import com.jass.JassGame;
 import com.jass.CardColours;
 
-dialect "java"
+global java.util.List list
+
+
 rule "Print Trump Symbols Heart"
+dialect "java"
     when
-        jass : Jass( trumpColour.equals("HEART") )
+        t : CardColours ()
     then
-        System.out.println( CardColours.HEART.cardSymbol() );
+        System.out.println( t.cardSymbol() );
+        modify(){}
 end
+
+// Next player can start round
+
+
 
 // Rules
 // If a colour is played, all other colours played must match the colour if the players have that colour in their card deck
@@ -32,7 +40,7 @@ end
 
 rule "Hello World"
     when
-        m : Message( status == Message.HELLO, myMessage : message )
+        m : Message( status == Message.HELLO, myMessage : message, myStatus : status )
     then
         System.out.println( myMessage );
         m.setMessage( "Goodbye cruel world" );

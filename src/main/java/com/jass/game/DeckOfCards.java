@@ -1,15 +1,12 @@
-package com.jass;
-
-import org.apache.commons.lang3.ArrayUtils;
+package com.jass.game;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class DeckOfCards {
 
-    public static final int numberOfCards = 36;
+    public  final int numberOfCards = 36;
 
-    public static Card[] deckOfCards = new Card[numberOfCards];
+    private  Card[] deckOfCards = new Card[numberOfCards];
 
     public DeckOfCards(){
 
@@ -49,7 +46,7 @@ public class DeckOfCards {
     }
 
 
-    public void ShuffleCards(){
+    public void shuffleCards(){
         Random rand = new Random();
         int j;
         for(int i=0; i<numberOfCards; i++){
@@ -60,7 +57,7 @@ public class DeckOfCards {
         }
     }
 
-    public static void showCards(){
+    public  void showCards(){
         System.out.println("---------------------------------------------");
         int count =0;
         for (Card card : deckOfCards){
@@ -73,46 +70,9 @@ public class DeckOfCards {
     }
 
 
-    public void dealCards(Player player1,Player player2,Player player3,Player player4){
 
-        int count = 0;
 
-        for (Card card : deckOfCards){
 
-            if (count>26){
-                player1.playCards[count%9] = card;
-            }
-            else if (count>17){
-                player2.playCards[count%9] = card;
-            }
-            else if (count>8){
-                player3.playCards[count%9] = card;
-            }
-            else{
-                player4.playCards[count%9] = card;
-            }
-            count++;
-        }
-    }
 
-    public static int enterCardToPlay(Player player1){
 
-        System.out.println("Enter the Number of the card to play :");
-
-        Scanner sc = new Scanner(System.in);
-        int chosenCardPosition = sc.nextInt();
-
-        if (chosenCardPosition >= 0 && chosenCardPosition <= player1.playCards.length){
-            return chosenCardPosition;
-        }
-        else {
-            return 99;
-        }
-    }
-
-    public static void removePlayedCardFromDeck(int chosenCardNumber, Player player) {
-
-        player.playCards = ArrayUtils.remove(player.playCards, chosenCardNumber);
-
-    }
 }

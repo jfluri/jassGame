@@ -1,5 +1,7 @@
 package com.jass;
 
+import com.jass.game.DeckOfCards;
+import com.jass.game.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,7 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-import static com.jass.DeckOfCards.enterCardToPlay;
+import static com.jass.game.DeckOfCards.enterCardToPlay;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -74,7 +76,7 @@ public class DeckOfCardsTest {
         System.setOut(ps);
 
         DeckOfCards deck = new DeckOfCards();
-        deck.ShuffleCards();
+        deck.shuffleCards();
         deck.showCards();
 
         System.out.flush();

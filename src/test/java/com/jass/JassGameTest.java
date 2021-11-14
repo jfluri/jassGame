@@ -1,5 +1,6 @@
 package com.jass;
 
+import com.jass.game.JassGame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +9,7 @@ import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class JassTest {
+public class JassGameTest {
 
     @Test
     @DisplayName("Save and return Trump Colour Check")
@@ -18,7 +19,7 @@ public class JassTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        String trumpColour = Jass.setTrumpColour();
+        String trumpColour = JassGame.setTrumpColour();
 
         assertEquals(input, trumpColour);
     }
@@ -31,7 +32,7 @@ public class JassTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        String trumpColour = Jass.setTrumpColour();
+        String trumpColour = JassGame.setTrumpColour();
 
         assertEquals(input, trumpColour);
     }
@@ -44,7 +45,7 @@ public class JassTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        String trumpColour = Jass.setTrumpColour();
+        String trumpColour = JassGame.setTrumpColour();
 
         assertEquals("HEART", trumpColour);
     }

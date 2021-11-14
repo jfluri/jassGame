@@ -1,4 +1,4 @@
-/***package com.jass;
+/***package com.com;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
