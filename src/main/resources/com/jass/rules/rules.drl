@@ -16,13 +16,24 @@ dialect "java"
         modify(){}
 end
 
-// Next player can start round
-
 
 
 // Rules
+
+// A game has 9 rounds where every player plays 1 card
+
+// The player(human) always starts the game
+
+// A player wins a round if he played the highest card (Points are defined in the Card class)
+// For trump colors the ranking is: Jack - Nine - Ace - King - Queen - Ten - Eight - Seven - Six
+// For non trump colors the ranking is: Ace - King - Queen - Jack - Ten - Nine - Eight - Seven - Six
+
+// The player that won the round can start the next round by playing a card (highest card if it's one of the computer players)
+
 // If a colour is played, all other colours played must match the colour if the players have that colour in their card deck
 
+
+// When the cards are dealt; before the game begins - players get points for the cards they have
 // If a player has four cards of the same card type in his carddeck, he gets 100 points
 
 // If a player has four jacks in his carddeck he gets 200 points
@@ -35,7 +46,8 @@ end
 
 // If a player has five cards of the same card colour in his carddeck that are in a row, he gets 100 points
 
-// A player wins a round if he played the highest card
+
+
 
 
 rule "Hello World"
