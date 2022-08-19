@@ -61,7 +61,7 @@ public class CardGameMain {
             Player player4 = new Player(playerName4,4);
 
             // Print one Deck for Player1
-            // Ab in die RuleEngine --> Wenn Spieler 1 am Zug ist, zeige ihm seine Karten an - alle anderen Karten werden nicht angezeigt
+            //  RuleEngine --> If Player 1 is playing, show him his cards - all other cards aren't shown
             player1.showPlayerCards();
 
 
@@ -79,9 +79,9 @@ public class CardGameMain {
                     jassGame.playCard(chosenCardNumber);
                 }
                 else {
-                    // Game starten für spieler 2 3 4
-                    // Rule engine triggern
-                    // sucht current player
+                    // Start Game for player 2 3 4
+                    // Trigger rule engine
+                    // look for current player
 
                 }
 

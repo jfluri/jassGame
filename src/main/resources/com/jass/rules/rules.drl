@@ -32,6 +32,7 @@ end
 
 // If a colour is played, all other colours played must match the colour if the players have that colour in their card deck
 
+// If Player 1 is playing, show him his cards - all other cards aren't shown
 
 // When the cards are dealt; before the game begins - players get points for the cards they have
 // If a player has four cards of the same card type in his carddeck, he gets 100 points
