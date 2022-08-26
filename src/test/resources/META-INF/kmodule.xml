@@ -7,4 +7,5 @@
     <kbase name="player-initial-points-rules" packages="rules.playerinitialpointsrules">
         <ksession name= "player-initial-points-rulesKS"/>
     </kbase>
+
 </kmodule>

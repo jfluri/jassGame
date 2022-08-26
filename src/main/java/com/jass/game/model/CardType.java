@@ -1,6 +1,6 @@
-package com.jass.game;
+package com.jass.game.model;
 
-public enum CardTypes {
+public enum CardType {
     ACE("Ace"),
     KING("King"),
     QUEEN("Queen"),
@@ -13,13 +13,11 @@ public enum CardTypes {
 
     private final String cardType;
 
-    private CardTypes(String cardType) {
+    CardType(final String cardType) {
         this.cardType = cardType;
     }
 
     public String getCardType() {
         return cardType;
     }
-
-
 }

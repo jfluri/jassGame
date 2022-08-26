@@ -1,78 +1,50 @@
 package com.jass.game;
 
+import com.jass.game.model.Card;
+import com.jass.game.model.CardColor;
+import com.jass.game.model.CardType;
+
 import java.util.Random;
 
 public class DeckOfCards {
 
-    public  final int numberOfCards = 36;
+    private final Card[] deckOfCards = new Card[36];
 
-    private  Card[] deckOfCards = new Card[numberOfCards];
+    public DeckOfCards(final CardColor trumpColour) {
+        int count = 0;
 
-    public DeckOfCards(){
-
-        int count=0;
-
-        String[] cardColour = { CardColours.CHECK.getCardColour(),
-                                CardColours.CROSS.getCardColour(),
-                                CardColours.HEART.getCardColour(),
-                                CardColours.SPADE.getCardColour()
-        };
-
-        String[] cardType ={    CardTypes.ACE.getCardType(),
-                                CardTypes.KING.getCardType(),
-                                CardTypes.QUEEN.getCardType(),
-                                CardTypes.JACK.getCardType(),
-                                CardTypes.TEN.getCardType(),
-                                CardTypes.NINE.getCardType(),
-                                CardTypes.EIGHT.getCardType(),
-                                CardTypes.SEVEN.getCardType(),
-                                CardTypes.SIX.getCardType()
-        };
-
-
-        for (String s:cardColour){
-            for (String r:cardType){
-
-                Card card = new Card(s, r);
-                this.deckOfCards[count] = card;
-                count++;
+        for (final CardColor cardColor : CardColor.values()) {
+            for (final CardType cardType : CardType.values()) {
+                final Card card = new Card(cardColor, cardType, trumpColour);
+                this.deckOfCards[count++] = card;
             }
         }
-
-
     }
-    public Card[] getDeckOfCards(){
+
+    public Card[] getDeckOfCards() {
         return this.deckOfCards;
     }
 
-
-    public void shuffleCards(){
-        Random rand = new Random();
-        int j;
-        for(int i=0; i<numberOfCards; i++){
-            j = rand.nextInt(numberOfCards);
-            Card temp = deckOfCards[i];
-            deckOfCards[i]=deckOfCards[j];
-            deckOfCards[j]= temp;
+    public void shuffleCards() {
+        final Random rand = new Random();
+        for (int i = 0; i < deckOfCards.length; i++) {
+            final int j = rand.nextInt(deckOfCards.length);
+            final Card temp = deckOfCards[i];
+            deckOfCards[i] = deckOfCards[j];
+            deckOfCards[j] = temp;
         }
     }
 
-    public  void showCards(){
+    public void showCards() {
         System.out.println("---------------------------------------------");
-        int count =0;
-        for (Card card : deckOfCards){
-            System.out.print(card.cardType + " of " + card.cardColour + "     ");
+        int count = 0;
+        for (final Card card : deckOfCards) {
+            System.out.print(card);
             count++;
-            if(count%3==0)
-                System.out.println("");
+            if (count % 3 == 0) {
+                System.out.println();
+            }
         }
         System.out.println("---------------------------------------------");
     }
-
-
-
-
-
-
-
 }

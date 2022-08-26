@@ -1,0 +1,196 @@
+package rules.playerinitialpointsrules
+
+import com.jass.game.model.Player;
+import com.jass.game.model.Card;
+import com.jass.game.model.CardColor;
+import com.jass.game.model.CardType;
+import java.util.Arrays;
+import com.jass.game.model.rule.impl.ThreeSameColorCardInRowRuleImpl;
+import com.jass.game.model.rule.impl.FourSameColorCardInRowRuleImpl;
+import com.jass.game.model.rule.impl.FiveSameColorCardInRowRuleImpl;
+
+rule "Four Jack"
+    when
+        player: Player(
+            playCards.containsAll(
+                                  Arrays.asList(
+                                                Card.of(CardColor.SPADE, CardType.JACK),
+                                                Card.of(CardColor.HEART, CardType.JACK),
+                                                Card.of(CardColor.CROSS, CardType.JACK),
+                                                Card.of(CardColor.CHECK, CardType.JACK)
+                                                )
+                                  )
+        )
+    then
+        player.addPoints(200);
+end
+
+rule "Trump Queen And King"
+    when
+        player: Player(
+               playCards.contains(Card.of(playCards.get(0).getCardColor(), CardType.KING)) &&
+               playCards.contains(Card.of(playCards.get(0).getCardColor(), CardType.QUEEN))
+        )
+    then
+        player.addPoints(20);
+end
+
+rule "Four Ace"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.ACE),
+                                                            Card.of(CardColor.HEART, CardType.ACE),
+                                                            Card.of(CardColor.CROSS, CardType.ACE),
+                                                            Card.of(CardColor.CHECK, CardType.ACE)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+rule "Four King"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.KING),
+                                                            Card.of(CardColor.HEART, CardType.KING),
+                                                            Card.of(CardColor.CROSS, CardType.KING),
+                                                            Card.of(CardColor.CHECK, CardType.KING)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+
+rule "Four Queen"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.QUEEN),
+                                                            Card.of(CardColor.HEART, CardType.QUEEN),
+                                                            Card.of(CardColor.CROSS, CardType.QUEEN),
+                                                            Card.of(CardColor.CHECK, CardType.QUEEN)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+rule "Four Ten"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.TEN),
+                                                            Card.of(CardColor.HEART, CardType.TEN),
+                                                            Card.of(CardColor.CROSS, CardType.TEN),
+                                                            Card.of(CardColor.CHECK, CardType.TEN)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+
+rule "Four Nine"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.NINE),
+                                                            Card.of(CardColor.HEART, CardType.NINE),
+                                                            Card.of(CardColor.CROSS, CardType.NINE),
+                                                            Card.of(CardColor.CHECK, CardType.NINE)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+
+rule "Four Eight"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.EIGHT),
+                                                            Card.of(CardColor.HEART, CardType.EIGHT),
+                                                            Card.of(CardColor.CROSS, CardType.EIGHT),
+                                                            Card.of(CardColor.CHECK, CardType.EIGHT)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+
+rule "Four Seven"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.SEVEN),
+                                                            Card.of(CardColor.HEART, CardType.SEVEN),
+                                                            Card.of(CardColor.CROSS, CardType.SEVEN),
+                                                            Card.of(CardColor.CHECK, CardType.SEVEN)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+
+rule "Four Six"
+activation-group "four-same-card"
+    when
+        player: Player(
+                        playCards.containsAll(Arrays.asList(
+                                                            Card.of(CardColor.SPADE, CardType.SIX),
+                                                            Card.of(CardColor.HEART, CardType.SIX),
+                                                            Card.of(CardColor.CROSS, CardType.SIX),
+                                                            Card.of(CardColor.CHECK, CardType.SIX)
+                                                            )
+                                              )
+                        )
+    then
+        player.addPoints(100);
+end
+
+rule "Three same color consecutive card"
+activation-group "consecutive-cards"
+salience 1
+    when
+        player: Player(new ThreeSameColorCardInRowRuleImpl().isMatch(this, null))
+    then
+        player.addPoints(20);
+end
+
+rule "Four same color consecutive card"
+activation-group "consecutive-cards"
+salience 2
+    when
+        player: Player(new FourSameColorCardInRowRuleImpl().isMatch(this, null))
+    then
+        player.addPoints(50);
+end
+
+rule "Five same color consecutive card"
+activation-group "consecutive-cards"
+salience 3
+    when
+        player: Player(new FiveSameColorCardInRowRuleImpl().isMatch(this, null))
+    then
+        player.addPoints(100);
+end
